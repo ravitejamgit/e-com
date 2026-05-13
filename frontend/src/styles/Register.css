@@ -6,7 +6,7 @@
 /* ─────────────────────────────────────────────
    Page wrapper
 ───────────────────────────────────────────── */
-.register-page {
+.page {
   min-height: 100vh;
   background-color: var(--color-background);
   display: flex;
@@ -19,7 +19,7 @@
 /* ─────────────────────────────────────────────
    Register Card
 ───────────────────────────────────────────── */
-.register-card {
+.card {
   background-color: var(--color-background);
   border: 1px solid var(--color-border);
   border-radius: 20px;
@@ -29,11 +29,11 @@
   max-width: 480px;
 }
 
-.register-card__header {
+.card__header {
   margin-bottom: 1.75rem;
 }
 
-.register-card__title {
+.card__title {
   font-size: 1.6rem;
   font-weight: 800;
   color: var(--color-text);
@@ -41,24 +41,24 @@
   letter-spacing: -0.3px;
 }
 
-.register-card__subtitle {
+.card__subtitle {
   font-size: 0.9rem;
   color: var(--color-muted);
   margin: 0;
 }
 
-.register-card__form {
+.card__form {
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
 }
 
-.register-card__row {
+.card__row {
   display: flex;
   gap: 1rem;
 }
 
-.register-card__api-error {
+.card__api-error {
   font-size: 0.85rem;
   color: var(--color-error);
   background-color: var(--color-error-ring);
@@ -68,28 +68,28 @@
   margin: 0;
 }
 
-.register-card__login-prompt {
+.card__prompt {
   margin-top: 1.25rem;
   text-align: center;
   font-size: 0.88rem;
   color: var(--color-muted);
 }
 
-.register-card__login-link {
+.card__prompt-link {
   color: var(--color-primary);
   font-weight: 700;
   text-decoration: none;
   margin-left: 4px;
 }
 
-.register-card__login-link:hover {
+.card__prompt-link:hover {
   text-decoration: underline;
 }
 
 /* ─────────────────────────────────────────────
    Success State
 ───────────────────────────────────────────── */
-.register-success {
+.success {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,7 +98,7 @@
   padding: 1.5rem 0;
 }
 
-.register-success__icon {
+.success__icon {
   font-size: 2.5rem;
   width: 68px;
   height: 68px;
@@ -109,21 +109,21 @@
   justify-content: center;
 }
 
-.register-success__title {
+.success__title {
   font-size: 1.4rem;
   font-weight: 800;
   color: var(--color-text);
   margin: 0;
 }
 
-.register-success__message {
+.success__message {
   font-size: 0.92rem;
   color: var(--color-muted);
   line-height: 1.6;
   margin: 0;
 }
 
-.register-success__link {
+.success__link {
   margin-top: 0.5rem;
   display: inline-block;
   padding: 0.72rem 1.75rem;
@@ -136,7 +136,7 @@
   transition: background-color 0.18s;
 }
 
-.register-success__link:hover {
+.success__link:hover {
   background-color: var(--color-primary-hover);
 }
 
@@ -254,12 +254,12 @@
    Responsive
 ───────────────────────────────────────────── */
 @media (max-width: 520px) {
-  .register-card {
+  .card {
     padding: 1.75rem 1.25rem;
     border-radius: 16px;
   }
 
-  .register-card__row {
+  .card__row {
     flex-direction: column;
   }
 }

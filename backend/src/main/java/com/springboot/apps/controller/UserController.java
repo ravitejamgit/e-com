@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.springboot.apps.dto.UserLoginDTO;
 import com.springboot.apps.dto.UserRegisterDTO;
 import com.springboot.apps.entity.User;
 import com.springboot.apps.service.UserService;
@@ -41,4 +42,15 @@ public class UserController {
 		}
 	}
 	
+	@PostMapping("/login")
+	public ResponseEntity<?> loginUser(@Valid @RequestBody UserLoginDTO userLoginDTO) {
+		try {
+			User userResponse = userService.loginUser(userLoginDTO);
+			return ResponseEntity.ok(Map.of("message", "Login Successfull", "user", userResponse.getUsername()));
+		}
+		catch(RuntimeException e) {
+			return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+		}
+	}
+ 	
 }

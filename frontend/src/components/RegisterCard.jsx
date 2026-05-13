@@ -1,8 +1,8 @@
 import { useState } from "react";
 import InputField from "./InputField";
 import SubmitButton from "./SubmitBtn";
-import axios from "axios";
 import { REGISTER_URL } from "../config";
+import axios from "axios";
 
 const validate = ({ fullName, username, email, password, confirmPassword }) => {
   const errors = {};
@@ -88,14 +88,14 @@ export default function RegisterCard() {
 
   if (submitted) {
     return (
-      <div className="register-card">
-        <div className="register-success">
-          <div className="register-success__icon">🎉</div>
-          <h2 className="register-success__title">Account Created!</h2>
-          <p className="register-success__message">
+      <div className="card">
+        <div className="success">
+          <div className="success__icon">🎉</div>
+          <h2 className="success__title">Account Created!</h2>
+          <p className="success__message">
             Your account has been successfully created. You can now sign in.
           </p>
-          <a href="/login" className="register-success__link">
+          <a href="/login" className="success__link">
             Go to Login →
           </a>
         </div>
@@ -104,19 +104,19 @@ export default function RegisterCard() {
   }
 
   return (
-    <div className="register-card">
-      <div className="register-card__header">
-        <h2 className="register-card__title">Create an account</h2>
-        <p className="register-card__subtitle">Fill in your details to get started.</p>
+    <div className="card">
+      <div className="card__header">
+        <h2 className="card__title">Create an account</h2>
+        <p className="card__subtitle">Fill in your details to get started.</p>
       </div>
-
-      <form onSubmit={handleSubmit} className="register-card__form" noValidate>
+  
+      <form onSubmit={handleSubmit} className="card__form" noValidate>
 
         {errors.api && (
-          <p className="register-card__api-error">{errors.api}</p>
+          <p className="card__api-error">{errors.api}</p>
         )}
  
-        <div className="register-card__row">
+        <div className="card__row">
           <InputField
             label="Full Name"
             id="fullName"
@@ -124,7 +124,7 @@ export default function RegisterCard() {
             value={fields.fullName}
             onChange={handleChange("fullName")}
             error={errors.fullName}
-            placeholder="Jane Doe"
+            placeholder=""
           />
           
         </div>
@@ -173,9 +173,9 @@ export default function RegisterCard() {
         <SubmitButton loading={loading} label="Create Account" />
       </form>
 
-      <p className="register-card__login-prompt">
+      <p className="card__prompt">
         Already have an account?
-        <a href="/login" className="register-card__login-link">Sign in</a>
+        <a href="/login" className="card__prompt-link">Sign in</a>
       </p>
     </div>
   );

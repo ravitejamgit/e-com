@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.springboot.apps.dto.UserLoginDTO;
 import com.springboot.apps.dto.UserRegisterDTO;
 import com.springboot.apps.entity.Role;
 import com.springboot.apps.entity.User;
@@ -34,6 +35,7 @@ public class UserServiceImp implements UserService {
 		Role role = roleRepository.findByName(userRegisterDTO.getRole()).orElseThrow(() -> new RuntimeException("Role does not exist...."));
 		
 		User user = new User(
+				userRegisterDTO.getName(),
 				userRegisterDTO.getEmail(),
 				passwordEncoder.encode(userRegisterDTO.getPassword()),
 				role,
@@ -43,6 +45,19 @@ public class UserServiceImp implements UserService {
 		);
 		
 		return userRepository.save(user);
+	}
+
+	@Override
+	public User loginUser(UserLoginDTO userLoginDTO) throws RuntimeException {
+		
+		User user = userRepository.findByEmail(userLoginDTO.getEmail()).orElseThrow(() -> new RuntimeException("No user found..."));
+		if(passwordEncoder.matches(userLoginDTO.getPassword(), user.getPassword())) {
+			return user;
+		}
+		else {
+			throw new RuntimeException("Incorrect password..");
+		}
+		
 	}
 
 }

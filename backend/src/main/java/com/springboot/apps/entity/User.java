@@ -13,10 +13,13 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Column(name = "username")
+	private String username;
+	
 	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "password_hash")
+	@Column(name = "password")
 	private String password;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -24,7 +27,6 @@ public class User {
 	private Role role;
 	
 	@Column(name = "is_active")
-	
 	private boolean isActive;
 	
 	@Column(name = "created_at")
@@ -37,10 +39,10 @@ public class User {
 		super();
 	}
 
-
-	public User(String email, String password, Role role, boolean isActive, LocalDateTime createdAt,
+	public User(String username, String email, String password, Role role, boolean isActive, LocalDateTime createdAt,
 			LocalDateTime updatedAt) {
 		super();
+		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.role = role;
@@ -49,10 +51,11 @@ public class User {
 		this.updatedAt = updatedAt;
 	}
 
-	public User(int id, String email, String password, Role role, boolean isActive, LocalDateTime createdAt,
-			LocalDateTime updatedAt) {
+	public User(int id, String username, String email, String password, Role role, boolean isActive,
+			LocalDateTime createdAt, LocalDateTime updatedAt) {
 		super();
 		this.id = id;
+		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.role = role;
@@ -67,6 +70,14 @@ public class User {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -119,8 +130,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", password=" + password + ", role=" + role
-				+ ", isActive=" + isActive + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + ", role="
+				+ role + ", isActive=" + isActive + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
 	}
 	
 }
