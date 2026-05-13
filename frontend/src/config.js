@@ -1,0 +1,1 @@
+export const REGISTER_URL = import.meta.env.VITE_REGISTER_API_URL

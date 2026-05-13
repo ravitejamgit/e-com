@@ -15,11 +15,11 @@ public class UserRegisterDTO {
 	}
 	
 
-	public UserRegisterDTO(String email, String password, String role) {
+	public UserRegisterDTO(String email, String password) {
 		super();
 		this.email = email;
 		this.password = password;
-		this.role = role;
+		this.role = "CUSTOMER";
 	}
 
 

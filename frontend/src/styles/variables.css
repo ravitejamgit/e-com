@@ -1,0 +1,20 @@
+:root {
+  /* Main Theme Colors */
+  --color-primary: #4A68FC;
+  --color-secondary: #CBCBCB;
+  --color-background: #FFFFFF;
+  --color-text: #070600;
+
+  /* Dark Mode Overrides (Optional preparation) */
+  --color-bg-dark: #070600;
+  --color-text-dark: #FFFFFF;
+
+  /* Derived / Component-level tokens */
+  --color-primary-hover: #3a57eb;
+  --color-primary-focus-ring: rgba(74, 104, 252, 0.18);
+  --color-error: #e24b4a;
+  --color-error-ring: rgba(226, 75, 74, 0.12);
+  --color-muted: #9a9a9a;
+  --color-border: #e0e0e0;
+  --color-card-shadow: rgba(74, 104, 252, 0.08);
+}

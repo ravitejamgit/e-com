@@ -1,0 +1,265 @@
+/* ─────────────────────────────────────────────
+   Import global color palette
+───────────────────────────────────────────── */
+
+
+/* ─────────────────────────────────────────────
+   Page wrapper
+───────────────────────────────────────────── */
+.register-page {
+  min-height: 100vh;
+  background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: 'DM Sans', 'Nunito', sans-serif;
+}
+
+/* ─────────────────────────────────────────────
+   Register Card
+───────────────────────────────────────────── */
+.register-card {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow: 0 6px 40px var(--color-card-shadow);
+  padding: 2.5rem 2.25rem;
+  width: 100%;
+  max-width: 480px;
+}
+
+.register-card__header {
+  margin-bottom: 1.75rem;
+}
+
+.register-card__title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0 0 0.3rem;
+  letter-spacing: -0.3px;
+}
+
+.register-card__subtitle {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.register-card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.register-card__row {
+  display: flex;
+  gap: 1rem;
+}
+
+.register-card__api-error {
+  font-size: 0.85rem;
+  color: var(--color-error);
+  background-color: var(--color-error-ring);
+  border: 1px solid var(--color-error);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  margin: 0;
+}
+
+.register-card__login-prompt {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+}
+
+.register-card__login-link {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.register-card__login-link:hover {
+  text-decoration: underline;
+}
+
+/* ─────────────────────────────────────────────
+   Success State
+───────────────────────────────────────────── */
+.register-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+  padding: 1.5rem 0;
+}
+
+.register-success__icon {
+  font-size: 2.5rem;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: rgba(74, 104, 252, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-success__title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.register-success__message {
+  font-size: 0.92rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.register-success__link {
+  margin-top: 0.5rem;
+  display: inline-block;
+  padding: 0.72rem 1.75rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.18s;
+}
+
+.register-success__link:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ─────────────────────────────────────────────
+   InputField Component
+───────────────────────────────────────────── */
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.input-field__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.input-field__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-field__input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.input-field__input::placeholder {
+  color: var(--color-secondary);
+}
+
+.input-field__input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3.5px var(--color-primary-focus-ring);
+}
+
+.input-field__input--error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3.5px var(--color-error-ring);
+}
+
+.input-field__input--has-toggle {
+  padding-right: 2.8rem;
+}
+
+.input-field__toggle {
+  position: absolute;
+  right: 0.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.input-field__toggle:hover {
+  color: var(--color-text);
+}
+
+.input-field__error {
+  font-size: 0.78rem;
+  color: var(--color-error);
+}
+
+/* ─────────────────────────────────────────────
+   SubmitButton Component
+───────────────────────────────────────────── */
+.submit-btn {
+  margin-top: 0.4rem;
+  padding: 0.82rem;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.15px;
+  transition: background-color 0.18s, transform 0.1s;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.submit-btn--loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ─────────────────────────────────────────────
+   Responsive
+───────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .register-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .register-card__row {
+    flex-direction: column;
+  }
+}
