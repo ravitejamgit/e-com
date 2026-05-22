@@ -1,6 +1,5 @@
 package com.springboot.apps.dto;
 
-import jakarta.validation.constraints.Email;
 
 public class UserRegisterDTO {
 	

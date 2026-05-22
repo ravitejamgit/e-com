@@ -3,6 +3,7 @@ import InputField from './InputField';
 import SubmitButton from './SubmitBtn';
 import axios from 'axios';
 import { redirect, useNavigate } from 'react-router-dom';
+import { LOGIN_URL } from '../config';
 
 const validate = ({ email, password }) => {
     const errors = {};
@@ -51,15 +52,20 @@ export default function LoginCard() {
         
         // Api call
         try {
-            await axios.post('http://localhost:8080/api/users/login', {
+            await axios.post(LOGIN_URL, {
                 email: fields.email,
                 password: fields.password
+            }, {
+                withCredentials: true
             }).then(response => {
-                console.log(response?.data);
-                navigate('/dashboard');
+                //console.log(response?.data);
+                if(response.data.role === "ADMIN")
+                    navigate('/admin');
+                else 
+                    navigate('/dashboard');
             }).catch(err => {
                 //console.log(err.response);
-                setErrors({ api: err.response?.data?.error || "Error from serversfa" })
+                setErrors({ api: err.response?.data?.error || "Error from server." })
             })
         }catch(err) {
             setErrors({api : err.error || "Error from server123"})

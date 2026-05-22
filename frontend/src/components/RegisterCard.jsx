@@ -39,7 +39,7 @@ export default function RegisterCard() {
     username: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirmPassword: ""
   });
   
   const [errors, setErrors] = useState({});
@@ -95,7 +95,7 @@ export default function RegisterCard() {
           <p className="success__message">
             Your account has been successfully created. You can now sign in.
           </p>
-          <a href="/login" className="success__link">
+          <a href="/" className="success__link">
             Go to Login →
           </a>
         </div>
@@ -169,6 +169,11 @@ export default function RegisterCard() {
           placeholder="Repeat your password"
           showToggle
         />
+
+        {/* <select id = "role" value={fields.role} onChange={ handleChange("role") }>
+          <option value="ADMIN" >ADMIN</option>
+          <option value= "CUSTOMER" >CUSTOMER</option>
+        </select> */}
 
         <SubmitButton loading={loading} label="Create Account" />
       </form>

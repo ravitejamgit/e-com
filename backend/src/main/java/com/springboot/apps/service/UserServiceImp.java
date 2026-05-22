@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.apps.dto.UserLoginDTO;
 import com.springboot.apps.dto.UserRegisterDTO;
+import com.springboot.apps.entity.JWTToken;
 import com.springboot.apps.entity.Role;
 import com.springboot.apps.entity.User;
 import com.springboot.apps.repository.RoleRepository;
@@ -58,6 +59,11 @@ public class UserServiceImp implements UserService {
 			throw new RuntimeException("Incorrect password..");
 		}
 		
+	}
+
+	@Override
+	public JWTToken generateToken(User user) {
+		return new JWTToken();
 	}
 
 }
