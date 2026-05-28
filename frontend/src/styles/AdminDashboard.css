@@ -1,0 +1,142 @@
+/* ── App shell ── */
+.app { display: flex; flex-direction: column; height: 100vh; }
+
+/* ── Navbar ── */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 0.5px solid rgba(0,0,0,0.12);
+  background: #fff;
+}
+.navbar h1 { font-size: 15px; font-weight: 500; margin: 0; }
+
+/* ── Body layout ── */
+.body { display: flex; flex: 1; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 180px;
+  background: #f5f5f3;
+  border-right: 0.5px solid rgba(0,0,0,0.1);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sidebar button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+}
+.sidebar button.active {
+  border: 0.5px solid #b5d4f4;
+  background: #e6f1fb;
+  color: #185fa5;
+}
+
+/* ── Display section ── */
+.display { flex: 1; padding: 24px; background: #fff; }
+
+/* ── Add product card ── */
+.product-card {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.12);
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 520px;
+}
+
+/* ── Card header ── */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+.card-header h2 { font-size: 15px; font-weight: 500; margin: 0; }
+
+/* ── Form grid ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.form-field { margin-bottom: 12px; }
+.form-field label {
+  font-size: 12px;
+  color: #666;
+  display: block;
+  margin-bottom: 5px;
+}
+.form-field input,
+.form-field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+.form-field input:focus,
+.form-field select:focus {
+  border-color: rgba(0,0,0,0.3);
+  box-shadow: 0 0 0 3px rgba(55,138,221,0.12);
+}
+
+/* ── URL input with icon ── */
+.url-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 0 10px;
+}
+.url-input-wrapper input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+/* ── Footer buttons ── */
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 1.25rem;
+}
+.btn-cancel {
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 0.5px solid rgba(0,0,0,0.2);
+  background: transparent;
+  color: #666;
+  font-size: 13px;
+  cursor: pointer;
+}
+.btn-submit {
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 0.5px solid #b5d4f4;
+  background: #e6f1fb;
+  color: #185fa5;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}

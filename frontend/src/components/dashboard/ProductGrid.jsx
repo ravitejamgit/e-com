@@ -46,16 +46,19 @@ const handleAddToCart = (product) => {
   console.log("Added to cart:", product);
 };
 
-export default function ProductGrid({ activeCategory, searchQuery, sortBy, onSortChange }) {
-  const PRODUCTS = useProduct();
-  console.log('from productsgrid.js product var: ', PRODUCTS);
-  console.log('From the productgrid.js' , typeof(PRODUCTS));
+export default function ProductGrid({ activeCategory, searchQuery, sortBy, onSortChange, PRODUCTS }) {
+  
+  //console.log('from productsgrid.js product var: ', PRODUCTS);
+  //console.log('From the productgrid.js' , typeof(PRODUCTS));
+  if(PRODUCTS == null) {
+    return;
+  }
+
   const filtered = PRODUCTS.filter((p) => {
-    console.log(p.Name);
-    console.log(p.Category);
+    //console.log(p);
     const matchesCategory = activeCategory === "All" || p.Category.name === activeCategory;
     const matchesSearch =
-      p.Name.toLowerCase().includes(searchQuery.toLowerCase())
+      p.name.toLowerCase().includes(searchQuery.toLowerCase())
       //p.brand.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
@@ -95,7 +98,7 @@ export default function ProductGrid({ activeCategory, searchQuery, sortBy, onSor
         <div className="product-grid">
           {sorted.map((product) => (
             <ProductCard
-              key={product.created_at}
+              key={product.product_id}
               product={product}
               onAddToCart={handleAddToCart}
             />

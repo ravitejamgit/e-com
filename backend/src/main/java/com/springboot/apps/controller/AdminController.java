@@ -17,7 +17,7 @@ import com.springboot.apps.service.AdminService;
 
 @Controller
 @RequestMapping("/api/admin")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class AdminController {
 	
 	AdminService adminService;

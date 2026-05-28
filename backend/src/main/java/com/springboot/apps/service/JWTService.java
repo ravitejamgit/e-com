@@ -6,6 +6,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -23,10 +24,16 @@ import jakarta.annotation.PostConstruct;
 @Service
 public class JWTService {
 	
+	private final ProductsService productsService;
+
 	@Value("${jwt.secret}")
 	private String secretKey;
 	
 	private Key key;
+
+	JWTService(ProductsService productsService) {
+		this.productsService = productsService;
+	}
 	
 	@PostConstruct
 	public void init() {
@@ -40,9 +47,30 @@ public class JWTService {
 				.setSubject(username)
 				.claim("role", role)
 				.setIssuedAt(new Date())
-				.setExpiration(new Date(System.currentTimeMillis() + 36000))
+				.setExpiration(new Date(System.currentTimeMillis() + (1 * 60 * 60 * 1000)))
 				.signWith(key)
 				.compact();
+	}
+
+
+	public String extractUsernameFromToken(String token) {
+		
+		Claims claims = Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();
+		//System.out.println("Extracting username : " + claims.getSubject());
+		return claims.getSubject();
+	}
+
+
+	public boolean validateToken(String token) {
+		try {
+			Jwts.parser()
+			.setSigningKey(key).parseClaimsJws(token);
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	

@@ -1,4 +1,4 @@
-export default function DashboardNavbar({ searchQuery, onSearchChange }) {
+export default function DashboardNavbar({ searchQuery, onSearchChange, user }) {
   return (
     <nav className="dashboard-navbar">
 
@@ -36,7 +36,7 @@ export default function DashboardNavbar({ searchQuery, onSearchChange }) {
           <span className="dashboard-cart-badge">3</span>
         </div>  
         <div>
-          <h3>JDfgdfr</h3>
+          <h3>{user}</h3>
         </div>
       </div>
     </nav>

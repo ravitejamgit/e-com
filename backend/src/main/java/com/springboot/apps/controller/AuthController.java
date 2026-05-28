@@ -41,13 +41,14 @@ public class AuthController {
 			
 			// Generate Token
 			String token = jwtService.generateToken(user.getUsername(), user.getRole().getName());
+			//System.out.println(token);
 			
 			// Generate cookie and set to response
-			Cookie cookie = new Cookie("access token : ", token);
+			Cookie cookie = new Cookie("accessToken", token);
 			cookie.setHttpOnly(true);
 			cookie.setSecure(false);
 			cookie.setPath("/");
-			cookie.setMaxAge(10);
+			cookie.setMaxAge(3600);
 			response.addCookie(cookie);
 			
 			return ResponseEntity.ok(Map.of("name", user.getUsername(), "role", user.getRole().getName()));
