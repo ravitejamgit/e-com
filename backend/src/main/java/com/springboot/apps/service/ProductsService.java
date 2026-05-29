@@ -40,8 +40,8 @@ public class ProductsService {
 
 	public List<Product> getProductsByCategory(String category) {
 		
-		if(category != null && !category.isEmpty()) {
-			ProductCategory productCategory = productCategoryRepository.findByName(category).orElseThrow(() -> new RuntimeException("Category not found.."));
+		if(category != null && !category.equalsIgnoreCase("all")) {
+			ProductCategory productCategory = productCategoryRepository.findByName(category.toLowerCase()).orElseThrow(() -> new RuntimeException("Category not found.."));
 			
 			return productRepository.findByCategory_id(productCategory.getId());
 		}

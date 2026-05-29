@@ -4,6 +4,7 @@ import SubmitButton from './SubmitBtn';
 import axios from 'axios';
 import { redirect, useNavigate } from 'react-router-dom';
 import { LOGIN_URL } from '../config';
+import Cookies from 'js-cookie';
 
 const validate = ({ email, password }) => {
     const errors = {};
@@ -24,6 +25,14 @@ const validate = ({ email, password }) => {
 
 
 export default function LoginCard() {
+
+    const token = Cookies.get('accessToken');
+    console.log(token);
+    if(token) {
+        navigate('/dashboard');
+        return;
+    }
+
     const navigate = useNavigate();
     const [fields, setFields] = useState({
         email:"",

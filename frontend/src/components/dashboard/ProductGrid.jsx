@@ -56,11 +56,12 @@ export default function ProductGrid({ activeCategory, searchQuery, sortBy, onSor
 
   const filtered = PRODUCTS.filter((p) => {
     //console.log(p);
-    const matchesCategory = activeCategory === "All" || p.Category.name === activeCategory;
+    //const matchesCategory = activeCategory === "All" || p.category.name === activeCategory;
     const matchesSearch =
       p.name.toLowerCase().includes(searchQuery.toLowerCase())
       //p.brand.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    //return matchesCategory && matchesSearch;
+    return matchesSearch;
   });
 
   

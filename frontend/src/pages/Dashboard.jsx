@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DashboardNavbar from "../components/dashboard/DashboardNavbar";
 import CategoryBar from "../components/dashboard/CategoryBar";
 import ProductGrid from "../components/dashboard/ProductGrid";
@@ -10,7 +10,7 @@ export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("featured");
   const [user, setUser] = useState('Guest');
-  const [PRODUCTS, USER] = useProduct();
+  const [PRODUCTS, USER] = useProduct(activeCategory);
 
   return (
     <div className="dashboard">
