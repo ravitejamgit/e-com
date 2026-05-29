@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {FETCH_ALL_PRODUCTS_URL} from '../config';
-import { data, redirect } from 'react-router-dom';
+import { data, redirect, useNavigation } from 'react-router-dom';
 import { act } from 'react';
 
 
-export default async function getProducts(activeCategory) {
+export default async function getProducts(activeCategory, navigate) {
 
     try {
         //console.log("from product service : ", activeCategory);  
@@ -15,8 +15,12 @@ export default async function getProducts(activeCategory) {
         return response;
     }
     catch(err) {
-        console.log(err);
+        if(err.status === 401) {
+            alert('session expired');
+            navigate('/');
+        }
         //alert('session expired.');
         //navigation.navigate('/');
-    }
+        throw err;
+    }   
 }

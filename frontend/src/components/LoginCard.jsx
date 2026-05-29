@@ -27,7 +27,7 @@ const validate = ({ email, password }) => {
 export default function LoginCard() {
 
     const token = Cookies.get('accessToken');
-    console.log(token);
+    //console.log(token);
     if(token) {
         navigate('/dashboard');
         return;

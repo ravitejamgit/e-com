@@ -18,7 +18,7 @@ import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class UserController {
 	
 	// Dependency

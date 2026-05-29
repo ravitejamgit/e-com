@@ -17,7 +17,7 @@ export default function ProductCard({ product, onAddToCart }) {
           </span>
           <button
             className="product-card__add-btn"
-            onClick={() => onAddToCart(product)}
+            onClick={() => onAddToCart(product.product_id)}
             aria-label={`Add ${product.name} to cart`}
           >
             + Add
