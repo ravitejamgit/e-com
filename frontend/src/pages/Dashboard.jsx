@@ -6,6 +6,7 @@ import "../styles/Dashboard.css";
 import useProduct from "../services/useProduct";
 import Cart from "../components/dashboard/Cart";
 import {getCount, addProductToCart} from "../services/CartService";
+import { useNavigation } from "react-router-dom";
 
 export default function Dashboard() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -61,6 +62,7 @@ export default function Dashboard() {
         onSearchChange={setSearchQuery}
         user={USER?.name || 'GUEST'}
         cartCount={isCartLoading ? '...' : cartError ? 'Error' : cartCount}
+        fetchCartCount={fetchCartCount}
       />
       <CategoryBar
         activeCategory={activeCategory}
@@ -73,6 +75,7 @@ export default function Dashboard() {
         onSortChange={setSortBy}
         PRODUCTS={PRODUCTS}
         handleAddToCart = {handleAddToCart}
+        
       />
     </div>
   );
