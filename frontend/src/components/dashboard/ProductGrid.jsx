@@ -1,29 +1,6 @@
 import useProduct from "../../services/useProduct";
 import ProductCard from "./ProductCard";
 
-// const PRODUCTS = [
-//   { id: 1,  name: "Ryzen 9 7950X",        brand: "AMD",      category: "CPU",          price: 68999 },
-//   { id: 2,  name: "Core i9-14900K",        brand: "Intel",    category: "CPU",          price: 54999 },
-//   { id: 3,  name: "Ryzen 5 7600X",         brand: "AMD",      category: "CPU",          price: 22999 },
-//   { id: 4,  name: "RTX 4080 Super",        brand: "Nvidia",   category: "GPU",          price: 109999 },
-//   { id: 5,  name: "RX 7900 XTX",           brand: "AMD",      category: "GPU",          price: 89999 },
-//   { id: 6,  name: "RTX 4060 Ti",           brand: "Nvidia",   category: "GPU",          price: 44999 },
-//   { id: 7,  name: "DDR5 32GB 6000MHz",     brand: "Corsair",  category: "RAM",          price: 14499 },
-//   { id: 8,  name: "Trident Z5 16GB",       brand: "G.Skill",  category: "RAM",          price: 9999  },
-//   { id: 9,  name: "980 Pro 2TB NVMe",      brand: "Samsung",  category: "Storage",      price: 18999 },
-//   { id: 10, name: "WD Black SN850X 1TB",   brand: "WD",       category: "Storage",      price: 12499 },
-//   { id: 11, name: "Kraken X73 360mm",      brand: "NZXT",     category: "Cooling",      price: 12499 },
-//   { id: 12, name: "Cooler Master H500",    brand: "CoolerMaster", category: "Cooling",  price: 7499  },
-//   { id: 13, name: "RM1000x 1000W",         brand: "Corsair",  category: "PSU",          price: 16999 },
-//   { id: 14, name: "Seasonic Focus GX 850W",brand: "Seasonic", category: "PSU",          price: 13999 },
-//   { id: 15, name: "Z790 Apex Encore",      brand: "ASUS",     category: "Motherboards", price: 42999 },
-//   { id: 16, name: "MAG Z790 Tomahawk",     brand: "MSI",      category: "Motherboards", price: 28999 },
-//   { id: 17, name: "MX Master 3S",          brand: "Logitech", category: "Peripherals",  price: 9499  },
-//   { id: 18, name: "65W GaN Charger",       brand: "Anker",    category: "Chargers",     price: 2499  },
-//   { id: 19, name: "100W USB-C Charger",    brand: "Belkin",   category: "Chargers",     price: 3499  },
-//   { id: 20, name: "20000mAh Power Bank",   brand: "Anker",    category: "Batteries",    price: 4999  },
-// ];
-
 const SORT_OPTIONS = [
   { value: "featured",    label: "Featured" },
   { value: "price-asc",   label: "Price: Low to High" },
@@ -41,23 +18,22 @@ const sortProducts = (products, sortBy) => {
   }
 };
 
-const handleAddToCart = (product) => {
-  // Replace with your cart logic / context / API call
-  console.log("Added to cart:", product);
-};
+export default function ProductGrid({ activeCategory, searchQuery, sortBy, onSortChange, PRODUCTS, handleAddToCart }) {
+  
+  //console.log('from productsgrid.js product var: ', PRODUCTS);
+  //console.log('From the productgrid.js' , typeof(PRODUCTS));
+  if(PRODUCTS == null) {
+    return;
+  }
 
-export default function ProductGrid({ activeCategory, searchQuery, sortBy, onSortChange }) {
-  const PRODUCTS = useProduct();
-  console.log('from productsgrid.js product var: ', PRODUCTS);
-  console.log('From the productgrid.js' , typeof(PRODUCTS));
   const filtered = PRODUCTS.filter((p) => {
-    console.log(p.Name);
-    console.log(p.Category);
-    const matchesCategory = activeCategory === "All" || p.Category.name === activeCategory;
+    //console.log(p);
+    //const matchesCategory = activeCategory === "All" || p.category.name === activeCategory;
     const matchesSearch =
-      p.Name.toLowerCase().includes(searchQuery.toLowerCase())
+      p.name.toLowerCase().includes(searchQuery.toLowerCase())
       //p.brand.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    //return matchesCategory && matchesSearch;
+    return matchesSearch;
   });
 
   
@@ -95,7 +71,7 @@ export default function ProductGrid({ activeCategory, searchQuery, sortBy, onSor
         <div className="product-grid">
           {sorted.map((product) => (
             <ProductCard
-              key={product.created_at}
+              key={product.product_id}
               product={product}
               onAddToCart={handleAddToCart}
             />

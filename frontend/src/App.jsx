@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
 
 export default function App() {
+  axios.defaults.withCredentials = true;
   return(
     <>
      <Router>

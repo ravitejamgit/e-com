@@ -9,4 +9,5 @@ public interface UserService {
 	public User registerUser(UserRegisterDTO userRegisterDTO);
 	public User loginUser(UserLoginDTO userLoginDTO);
 	public JWTToken generateToken(User user);
+	public User ifExists(String username);
 }

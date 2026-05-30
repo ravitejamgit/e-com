@@ -66,4 +66,9 @@ public class UserServiceImp implements UserService {
 		return new JWTToken();
 	}
 
+	@Override
+	public User ifExists(String username) {
+		return userRepository.findByUsername(username).orElse(null);
+	}
+
 }

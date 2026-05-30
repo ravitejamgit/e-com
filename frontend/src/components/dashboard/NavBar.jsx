@@ -1,4 +1,7 @@
-export default function DashboardNavbar({ searchQuery, onSearchChange }) {
+import Cart from "./Cart";
+import Profile from "./Profile";
+
+export default function Navbar({ searchQuery, onSearchChange, user, cartCount, navigate, fetchCartCount }) {
   return (
     <nav className="dashboard-navbar">
 
@@ -25,20 +28,12 @@ export default function DashboardNavbar({ searchQuery, onSearchChange }) {
           onChange={(e) => onSearchChange(e.target.value)}
         />
       </div>
-
+      
       <div className="dashboard-nav-right">
-        <div className="dashboard-cart" aria-label="Cart">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="9" cy="21" r="1" />
-            <circle cx="20" cy="21" r="1" />
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-          </svg>
-          <span className="dashboard-cart-badge">3</span>
-        </div>  
-        <div>
-          <h3>JDfgdfr</h3>
-        </div>
+          <Cart cartCount={cartCount} navigate={navigate} fetchCartCount={fetchCartCount}/>
+          <Profile user={user}/>
       </div>
+      
     </nav>
   );
 }

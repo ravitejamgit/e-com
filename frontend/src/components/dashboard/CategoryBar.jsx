@@ -2,14 +2,16 @@ const CATEGORIES = [
   "All",
   "CPU",
   "GPU",
-  "rams",
-  "Storage",
+  "RAM",
+  "SSD",
   "Cooling",
   "PSU",
-  "Motherboards",
-  "Peripherals",
-  "Chargers",
-  "Batteries",
+  "Motherboard",
+  "Cases",
+  "Keyboard",
+  "HDD",
+  "Monitor",
+  "Mouse"
 ];
 
 export default function CategoryBar({ activeCategory, onCategoryChange }) {
