@@ -1,7 +1,8 @@
 import { useState } from "react";
 import React from "react";
-import { getAllCartItems, updateItemQuantity, deleteItem } from "../../services/CartService";
+import { getAllCartItems, updateItemQuantity, deleteItem, payment } from "../../services/CartService";
 import '../../styles/CartModal.css';
+import { useNavigate } from 'react-router-dom';
 
 // ── Inline SVG Icons (no external dependency) ──────────────
 const IconCart = () => (
@@ -52,6 +53,7 @@ export default function Cart({ user, cartCount, fetchCartCount }) {
     const [promoMsg, setPromoMsg] = useState(null);
     const [discount, setDiscount] = useState(0);
     const [totalCheckOutCost, setTotalCheckOutCost] = useState(0);
+    const navigate = useNavigate();
 
     const PROMOS = {
         SAVE10:    { pct: 10 },
@@ -119,6 +121,21 @@ export default function Cart({ user, cartCount, fetchCartCount }) {
             setPromoMsg({ type: "error", text: "Invalid code. Try SAVE10, WELCOME20, or FLAT5." });
         }
     };
+
+    const handlePayment = async (totalCheckOutCost) => {
+        try {
+            const response = await payment(totalCheckOutCost);
+            if(response.success) {
+                window.location.reload();
+            }
+            else {
+                alert('Payment failed. Please try again..');
+            }
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
 
     const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
     const shipping = subtotal > 0 ? 5 : 0;
@@ -291,7 +308,7 @@ export default function Cart({ user, cartCount, fetchCartCount }) {
                                     <p className={`promo-msg ${promoMsg.type}`}>{promoMsg.text}</p>
                                 )}
 
-                                <button className="checkout-btn">
+                                <button className="checkout-btn" onClick={() => handlePayment(totalCheckOutCost)}>
                                     Proceed to Checkout
                                 </button>
 
