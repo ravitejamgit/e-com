@@ -20,4 +20,10 @@ public interface CartRepository extends JpaRepository<Cart, Integer> {
 	
 	@Query("select coalesce(sum(c.quantity), 0) from Cart c where c.user.id = :userId")
 	int countByUser(int userId);
+	
+	/*
+	 * Transactional
+	 * Modifying
+	 * Query("Delete from Cart c where c.user.userId = :userId")*/
+	void deleteAllByUser_Id(int userId);
 }
