@@ -11,3 +11,10 @@ export const DELETE_CARTITEM_URL = import.meta.env.VITE_DELETE_CART_PRODUCT_API_
 
 export const CREATE_ORDER_ID = import.meta.env.VITE_PAYMENT_CREATE_ORDER_ID
 export const VERIFY_SIGNATURE = import.meta.env.VITE_PAYMENT_VERIFY_SIGNATURE
+
+export const FETCH_ALL_ORDERS = import.meta.env.VITE_FETCH_ALL_ORDERS
+
+export const FETCH_PROFILE_URL = import.meta.env.VITE_FETCH_PROFILE
+export const PROFILE_UPDATE_USERNAME_URL = import.meta.env.VITE_PROFILE_UPDATE_USERNAME
+export const PROFILE_UPDATE_EMAIL_URL = import.meta.env.VITE_PROFILE_UPDATE_EMAIL
+export const PROFILE_UPDATE_PASSWORD_URL = import.meta.env.VITE_PROFILE_UPDATE_PASSWORD

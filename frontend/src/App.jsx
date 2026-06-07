@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import axios from 'axios';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import Profile from './pages/Profile';
 
 export default function App() {
   axios.defaults.withCredentials = true;
@@ -16,6 +17,7 @@ export default function App() {
           <Route path='/register' element={<Register />}/>
           <Route path='/dashboard' element={<Dashboard />}/>
           <Route path='/admin' element={<AdminDashboard />} />
+          <Route path='/profile' element={<Profile />} />
       </Routes>
      </Router>
     </>

@@ -1,0 +1,135 @@
+/* Container Layout */
+.orders-wrap {
+  max-width: 750px; /* Slightly wider to accommodate row inputs nicely */
+  margin: 20px auto;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+}
+
+.view-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left; /* Explicitly align title left */
+}
+
+/* Individual Settings Rows - Fixing the Center Stack */
+.order-card {
+  display: flex !important;
+  flex-direction: row !important; /* Forces side-by-side instead of column stack */
+  justify-content: space-between !important; /* Pushes content left and buttons right */
+  align-items: center !important; /* Vertically centers the text and buttons */
+  text-align: left !important; /* Fixes text-centering */
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+/* Explicit container wrap for text elements */
+.order-meta {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important; /* Guarantees inputs align left */
+  gap: 4px;
+  flex: 1;
+}
+
+/* Labels and values */
+.order-num {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.order-date {
+  font-size: 16px;
+  color: #0f172a;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.disabled-text {
+  font-size: 13px;
+  color: #94a3b8;
+  font-style: italic;
+  display: inline-block;
+  padding-right: 12px;
+}
+
+/* Form Entry Inputs aligned neatly */
+.settings-input {
+  padding: 8px 12px;
+  font-size: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  width: 100%;
+  max-width: 350px;
+  margin-top: 6px;
+  font-family: inherit;
+  background-color: #ffffff;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.settings-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Control Buttons side-by-side alignment */
+.btn-update {
+  padding: 8px 16px;
+  background-color: #eff6ff;
+  color: #2563eb;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap; /* Keeps text on one line */
+}
+
+.btn-update:hover {
+  background-color: #dbeafe;
+}
+
+.btn-save {
+  padding: 8px 14px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-save:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-cancel {
+  padding: 8px 14px;
+  background-color: transparent;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #f8fafc;
+  color: #334155;
+}
