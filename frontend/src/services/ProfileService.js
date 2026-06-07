@@ -11,6 +11,7 @@ export async function fetchProfile() {
     }
     catch(err) {
         console.log(err);
+        throw err;
     }
 }
 
@@ -25,5 +26,6 @@ export async function update(field, data) {
     }
     catch(err) {
         console.lor(err);
+        throw(err);
     }
 }

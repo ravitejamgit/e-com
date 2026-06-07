@@ -38,8 +38,6 @@ function OrderCard({ order }) {
             <span className="meta-label">quantity</span>
             <span className="meta-value">{order.quantity}</span>
           </div>
-          
-          
         </div>
  
         <div className="card-actions">

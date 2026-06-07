@@ -37,7 +37,7 @@ export default function Dashboard() {
     catch(err) {
       setCartError(true);
     }
-    setIsCartLoading(false);
+    setIsCartLoading(false);   
   }
 
   const handleAddToCart = async (itemId) => {

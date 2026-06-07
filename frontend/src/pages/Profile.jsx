@@ -3,7 +3,7 @@ import Orders from "../components/Orders";
 import AccountDetails from "../components/AccountDetails";
 import "../styles/ProfileDashboard.css";
 import { fetchProfile } from "../services/ProfileService";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const NAV_ITEMS = [
   { id: "orders",     label: "Orders & Tracking",  icon: "📦" },
@@ -28,13 +28,20 @@ export default function Profile() {
   const [activeTab, setActiveTab] = useState(location.state?.tab || "orders");
   const [customer,  setCustomer]  = useState({});
   const [orders,    setOrders]    = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetch = async () => {
-      const data = await fetchProfile();
-      setCustomer(data);
+    try {
+      const fetch = async () => {
+        const data = await fetchProfile();
+        setCustomer(data);
+      }
+      fetch();
+
+    } catch (error) {
+      System.out.println(error)
+      navigate('/');
     }
-    fetch();
   }, []);
 
   const tabProps = { customer, orders };
@@ -45,9 +52,9 @@ export default function Profile() {
   return (
     <div className="hub-wrapper">
       <div className="hub-container">
-
         {/* ── Sidebar ── */}
         <aside className="hub-sidebar">
+   
           <div className="customer-meta">
             <div className="customer-avatar">{customer?.initials ?? "…"}</div>
             <h2 className="customer-name">{customer?.username ?? " "}</h2>

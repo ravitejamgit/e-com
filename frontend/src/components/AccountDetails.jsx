@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/AccountDetail.css'
 import { fetchProfile, update } from '../services/ProfileService'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function AccountDetails() {
   const [profile, setProfile] = useState([]);
   const [load, setLoad] = useState(false);
+  const navigate = useNavigate();
 
 
   useEffect(() => {

@@ -18,3 +18,5 @@ export const FETCH_PROFILE_URL = import.meta.env.VITE_FETCH_PROFILE
 export const PROFILE_UPDATE_USERNAME_URL = import.meta.env.VITE_PROFILE_UPDATE_USERNAME
 export const PROFILE_UPDATE_EMAIL_URL = import.meta.env.VITE_PROFILE_UPDATE_EMAIL
 export const PROFILE_UPDATE_PASSWORD_URL = import.meta.env.VITE_PROFILE_UPDATE_PASSWORD
+
+export const LOUTOUT_URL = import.meta.env.VITE_LOGOUT_API_URL

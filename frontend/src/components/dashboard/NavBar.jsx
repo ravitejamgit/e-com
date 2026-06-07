@@ -1,6 +1,7 @@
 import Cart from "./Cart";
 import Profile from "./Profile";
 
+
 export default function Navbar({ searchQuery, onSearchChange, user, cartCount, navigate, fetchCartCount }) {
   return (
     <nav className="dashboard-navbar">
@@ -32,6 +33,7 @@ export default function Navbar({ searchQuery, onSearchChange, user, cartCount, n
       <div className="dashboard-nav-right">
           <Cart cartCount={cartCount} navigate={navigate} fetchCartCount={fetchCartCount}/>
           <Profile user={user}/>
+          
       </div>
       
     </nav>
