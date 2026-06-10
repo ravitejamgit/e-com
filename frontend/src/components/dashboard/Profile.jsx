@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Dropdown from "../Dropdown";
 
 export default function Profile({ user }) {
 
@@ -13,9 +14,10 @@ export default function Profile({ user }) {
             </button>
 
             { toggle && (
-                <div>
-                    <h1>Toggle clicked....</h1>
-                </div>
+                <Dropdown 
+                    onProfileNavigate = {() => setShowpProfile(true)}
+                    
+                />
             )}
 
         </div>

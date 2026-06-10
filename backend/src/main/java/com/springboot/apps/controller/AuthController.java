@@ -16,6 +16,7 @@ import com.springboot.apps.service.AuthService;
 import com.springboot.apps.service.JWTService;
 
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
@@ -58,6 +59,30 @@ public class AuthController {
 		}
 		
 	}
+	
+	@PostMapping("/logout") 
+	public ResponseEntity<?> logout(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			User user = (User) request.getAttribute("authenticatedUser");
+			if(user == null) {
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", "Unauthorized user."));
+			}
+			
+			Cookie cookie = new Cookie("accessToken", null);
+			cookie.setHttpOnly(true);
+			cookie.setSecure(false);
+			cookie.setPath("/");
+			cookie.setMaxAge(0);
+			response.addCookie(cookie);
+			
+			
+			return ResponseEntity.ok(Map.of("message", "User logged out successfully"));
+		}
+		catch(Exception e) {
+			return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+		}
+	}
+	
 }
 
 
