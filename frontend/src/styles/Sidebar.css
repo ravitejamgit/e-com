@@ -1,0 +1,137 @@
+/* ── Sidebar ─────────────────────────────────────── */
+.sidebar {
+  width: 56px;
+  background: #fff;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 0;
+  transition: width 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 100;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar--expanded {
+  width: 210px;
+}
+
+/* Logo */
+.sidebar__logo-wrap {
+  padding: 0 12px 20px;
+  width: 100%;
+}
+
+.sidebar__logo {
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.sidebar__logo svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Nav */
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 0 8px;
+  flex: 1;
+}
+
+.sidebar__section-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 8px 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s 0.06s;
+  display: block;
+}
+
+.sidebar--expanded .sidebar__section-label {
+  opacity: 1;
+}
+
+.sidebar__divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 0;
+  width: 100%;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: background 0.13s, color 0.13s;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.sidebar__item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.sidebar__item--active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.sidebar__item--logout:hover {
+  background: #fff3f3;
+  color: #e53e3e;
+}
+
+.sidebar__icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar__label {
+  opacity: 0;
+  transition: opacity 0.13s 0.05s;
+}
+
+.sidebar--expanded .sidebar__label {
+  opacity: 1;
+}
+
+/* Bottom */
+.sidebar__bottom {
+  padding: 0 8px 4px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

@@ -193,9 +193,9 @@
 .category-bar {
   background: var(--color-background);
   border-bottom: 1px solid var(--border);
-  padding: 0 2rem;
-  height: 48px;
-  display: flex;
+  padding: 5px 2rem;
+  /* height: 48px;
+  display: flex; */
   align-items: center;
   gap: 6px;
   overflow-x: auto;

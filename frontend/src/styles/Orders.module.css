@@ -1,0 +1,282 @@
+@import './variables.css';
+
+.heading {
+  margin: 0 0 24px 0;
+  color: var(--color-text);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.searchBar {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  margin-bottom: 24px;
+  font-size: 15px;
+  outline: none;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.searchBar:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-focus-ring);
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header_listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: yellow;
+  margin-bottom: 5px;
+}
+
+.card {
+  background-color: var(--color-background);
+  border-radius: 8px;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px var(--color-card-shadow);
+}
+
+.orderInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex: 1;
+}
+
+.orderIdText {
+  color: var(--color-text);
+  font-size: 15px;
+  width: 240px;
+}
+.orderIdText:hover {
+  cursor: pointer;
+  color: rgb(38, 38, 245);
+}
+
+.header_orderInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex: 1;
+}
+
+/* Keep your existing .card, .orderInfo, .orderIdText, .userIdText, and .totalText exactly as they are */
+
+/* 1. Add specific header widths to match the data row widths precisely */
+.header_orderIdText {
+  color: var(--color-primary);
+  font-size: 15px;
+  width: 240px; /* Matches .orderIdText */
+}
+
+.header_userIdText {
+  color: var(--color-primary);
+  font-size: 15px;
+  width: 250px; /* Matches .userIdText */
+}
+
+.header_totalText {
+  color: var(--color-primary);
+  font-size: 15px;
+  width: 150px; /* Matches .totalText */
+}
+
+/* 2. Style for the actions/status column layout wrapper */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100px; /* Assign a fixed width to the status section if needed */
+}
+
+.header_statusText {
+  color: var(--color-primary);
+  font-size: 15px;
+  text-align: right; 
+  width: 100px;
+}
+
+.userIdText {
+  color: var(--color-muted);
+  width: 250px;
+}
+
+.totalText {
+  color: var(--color-text);
+  font-weight: 600;
+  width: 150px;
+}
+
+.statusBadge {
+  background-color: var(--color-primary-focus-ring);
+  color: var(--color-primary);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  min-width: 90px;
+  display: inline-block;
+}
+
+.emptyState {
+  color: var(--color-muted);
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Modal */
+/* Dark blurred background overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalCard {
+  background-color: var(--color-background, #ffffff);
+  border: 1px solid var(--color-border, #e0e0e0);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 640px; /* Widened slightly to elegantly support side-by-side info grids */
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-border, #e0e0e0);
+  padding-bottom: 12px;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--color-text, #111111);
+}
+
+.sectionTitle {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-primary, #2626f5);
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+/* Two-column layout grid for dense data distribution */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 24px;
+  margin-bottom: 16px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--color-border, #f0f0f0);
+}
+
+.label {
+  color: var(--color-muted, #666666);
+  font-size: 14px;
+}
+
+.value {
+  color: var(--color-text, #111111);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Full width description layout block */
+.descriptionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 12px 0;
+  padding: 12px;
+  background-color: var(--color-card-shadow, #f9fafb);
+  border-radius: 6px;
+}
+
+.descriptionText {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text, #333333);
+  line-height: 1.5;
+}
+
+/* Standout banner highlighting final cost metrics */
+.totalBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-primary, #2626f5);
+  color: #ffffff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+.grandPrice {
+  font-size: 18px;
+}
+
+/* Footer layout configuration */
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+/* Interactive Close Button */
+.closeButton {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: #e5e7eb;
+  border-color: #9ca3af;
+}

@@ -78,7 +78,7 @@ export default function Orders() {
     setLoading(true);
     try {
       const data = await fetchAllOrders();
-      console.log(data.products);
+      //console.log(data.products);
       setOrders(data.products);
     }
     catch(err) {

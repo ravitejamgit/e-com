@@ -6,7 +6,7 @@ import "../styles/Dashboard.css";
 import useProduct from "../services/useProduct";
 import Cart from "../components/dashboard/Cart";
 import {getCount, addProductToCart} from "../services/CartService";
-import { useNavigation } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 
 export default function Dashboard() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -16,6 +16,7 @@ export default function Dashboard() {
   const [cartCount, setCartCount] = useState(0);
   const [cartError, setCartError] = useState(false);
   const [isCartLoading, setIsCartLoading] = useState(true);
+  const navigate = useNavigate();
 
   
   useEffect(() => {
@@ -51,7 +52,10 @@ export default function Dashboard() {
       }
     }
     catch(err) {
-      alert("Error adding to cart");
+      alert(err);
+      if(err.status === 401) {
+        navigate('/');
+      }
     }
   }
 
